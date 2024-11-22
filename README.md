@@ -1,3 +1,41 @@
+# RickAndMortyApp
+
+RickAndMortyApp es una aplicación móvil desarrollada con React Native que utiliza GraphQL para consumir datos de la API de Rick and Morty. La aplicación muestra una lista de personajes, permite navegar entre páginas y explorar detalles de cada personaje.
+
+## 📋 Características
+
+- **Listado de personajes**: Visualiza personajes con información como nombre, imagen y estado.
+- **Paginación**: Carga más personajes automáticamente al llegar al final de la lista.
+- **Detalles de personaje**: Consulta información adicional sobre cada personaje.
+- **Cross-platform**: Compatible con dispositivos Android e iOS.
+
+## 🚀 Tecnologías utilizadas
+
+- **React Native**: Para el desarrollo de la aplicación móvil.
+- **Apollo Client**: Para la gestión de consultas y mutaciones GraphQL.
+- **TypeScript**: Para tipado estático.
+- **React Navigation**: Para la navegación entre pantallas.
+- **GraphQL**: Para consumir datos desde Rick and Morty API.
+
+## 🛠️ Requisitos previos
+
+Asegúrate de tener instalados los siguientes componentes en tu entorno de desarrollo:
+
+- Node.js (v18 o superior recomendado).
+- npm o Yarn.
+- Expo CLI o un entorno configurado para React Native.
+- Android Studio para emular dispositivos Android o un dispositivo físico conectado.
+- Xcode para emular dispositivos iOS o un dispositivo físico conectado.
+
+## ⚙️ Instalación y configuración
+
+Clona este repositorio:
+
+```bash
+git clone https://github.com/BearPandaDay/prueba-tecnica-react-native-rickand-morty-graphql.git
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
