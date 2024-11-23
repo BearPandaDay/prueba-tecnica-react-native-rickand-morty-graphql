@@ -3,22 +3,30 @@ import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react
 import { useQuery } from '@apollo/client';
 import { GET_CHARACTERS } from '../graphql/queries';
 
-const CharactersList = ({ navigation }) => {
+const CharactersList = (props:iProps) => {
+  const { navigation } = props;
   const [page, setPage] = useState(1);
+  console.log('🚀 ~ CharactersList ~ setPage:', setPage);
 
   const { data, loading, error, fetchMore } = useQuery(GET_CHARACTERS, {
     variables: { page },
   });
 
-  if (loading) return <Text>Cargando...</Text>;
-  if (error) return <Text>Error: {error.message}</Text>;
+  if (loading) {
+    return (<Text>Cargando...</Text>);
+  }
+  if (error) {
+    return (
+      <Text>Error: {error.message}</Text>
+    );
+  }
 
   const loadMoreCharacters = () => {
     if (data.characters.info.next) {
       fetchMore({
         variables: { page: data.characters.info.next },
         updateQuery: (prev, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return prev;
+          if (!fetchMoreResult) {return (prev);}
 
           return {
             characters: {
@@ -35,6 +43,7 @@ const CharactersList = ({ navigation }) => {
   };
 
   const renderItem = ({ item }) => (
+
     <TouchableOpacity
       style={styles.characterCard}
       onPress={() =>
@@ -53,6 +62,7 @@ const CharactersList = ({ navigation }) => {
 
   return (
     <FlatList
+      style={{backgroundColor: '#383838',}}
       data={data.characters.results}
       keyExtractor={(item) => item.id}
       renderItem={renderItem}
@@ -60,6 +70,7 @@ const CharactersList = ({ navigation }) => {
       onEndReachedThreshold={0.5}
       contentContainerStyle={styles.listContainer}
     />
+    // <></>
   );
 };
 
@@ -70,7 +81,7 @@ const styles = StyleSheet.create({
   characterCard: {
     flexDirection: 'row',
     marginBottom: 10,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#151515',
     padding: 10,
     borderRadius: 8,
     elevation: 2,
@@ -91,4 +102,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CharactersList;
+export {
+  CharactersList,
+};
+
+
+interface iProps {
+  navigation: any,
+}

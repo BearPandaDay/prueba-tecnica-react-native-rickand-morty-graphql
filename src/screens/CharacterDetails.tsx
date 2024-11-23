@@ -74,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CharacterDetails;
+export {CharacterDetails};
